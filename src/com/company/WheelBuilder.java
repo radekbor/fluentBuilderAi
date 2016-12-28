@@ -45,4 +45,15 @@ public class WheelBuilder {
     public static WheelBuilder newBuilder() {
         return new WheelBuilder();
     }
+
+    private WheelListBuilder wheelListBuilder;
+
+    public WheelListBuilder addWheelToList(){
+        this.wheelListBuilder.addWheel(this.build());
+        return wheelListBuilder;
+    }
+
+    public void withWheelListBuilder(WheelListBuilder wheelListBuilder) {
+        this.wheelListBuilder = wheelListBuilder;
+    }
 }
