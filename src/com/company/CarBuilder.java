@@ -27,4 +27,16 @@ public class CarBuilder {
         car.setWheels(this.wheels);
         return car;
     }
+
+    public EngineBuilder addEngine() {
+        EngineBuilder engineBuilder = new EngineBuilder();
+        engineBuilder.withCarBuilder(this);
+        return engineBuilder;
+    }
+
+    public WheelListBuilder addWheels() {
+        WheelListBuilder wheelListBuilder = WheelListBuilder.newBuilder();
+        wheelListBuilder.withCarBuilder(this);
+        return wheelListBuilder;
+    }
 }

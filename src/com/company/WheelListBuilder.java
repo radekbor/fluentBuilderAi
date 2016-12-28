@@ -5,6 +5,8 @@ import java.util.List;
 
 public class WheelListBuilder {
 
+    private CarBuilder carBuilder;
+
     public static WheelListBuilder newBuilder(){
         WheelListBuilder builder = new WheelListBuilder();
         builder.withNewList();
@@ -39,5 +41,14 @@ public class WheelListBuilder {
         WheelBuilder builder = WheelBuilder.newBuilder();
         builder.withWheelListBuilder(this);
         return builder;
+    }
+
+    public void withCarBuilder(CarBuilder carBuilder) {
+        this.carBuilder = carBuilder;
+    }
+
+    public CarBuilder done() {
+        carBuilder.withWheelList(this.build());
+        return this.carBuilder;
     }
 }
